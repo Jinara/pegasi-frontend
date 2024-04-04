@@ -14,7 +14,7 @@ export class UserFormComponent {
   form: FormGroup;
   errorMessage: any;
   user: UserModel;
-  errors: any[] = []
+  errors: any[] = [];
 
   constructor(
     private userService: UserService,
@@ -22,13 +22,12 @@ export class UserFormComponent {
     private avRoute: ActivatedRoute,
     private router: Router
   ) {
-
     this.form = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      age: ['', [Validators.required]],
+      firstName: ['', [Validators.required, Validators.min(2)]],
+      lastName: ['', [Validators.required, Validators.min(2)]],
+      age: ['', [Validators.required, , Validators.min(5)]],
       sex: ['', [Validators.required]],
-      pregnancy: ['', [Validators.required]],
+      pregnancy: [false, []],
       birthdate: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
     });
@@ -37,8 +36,11 @@ export class UserFormComponent {
   ngOnInit() {}
 
   save() {
-    if (!this.form.valid) {
       console.log(this.form)
+      console.log(this.sex?.value)
+      console.log(this.pregnancy?.value)
+      console.log(this.birthdate?.value)
+    if (!this.form.valid) {
       return;
     }
 
@@ -49,16 +51,20 @@ export class UserFormComponent {
     userModel.firstName = this.firstName?.value;
     userModel.lastName = this.lastName?.value;
     userModel.age = this.age?.value;
+    userModel.sex = this.sex?.value;
+    userModel.birthdate = this.birthdate?.value;
+    userModel.phoneNumber = this.phoneNumber?.value;
+    if(this.sex?.value == 'female')
+      userModel.pregnancy = this.pregnancy?.value;
 
     this.userService.insert(userModel).subscribe(
       (data) => {
-        this.router.navigate(['/', data]);
+        console.log('amm cargo?')
+        this.router.navigate(['/dashboard', data]);
       },
       (err: HttpErrorResponse) => {
-        if(err.error)
-        console.log('holiiiiiii',err.error, err.error.error);
-          this.errors = [err.error.error]
-        //this.loading = false;
+        if (err.error) console.log('holiiiiiii', err.error, err.error.error);
+        this.errors = [err.error.error];
       }
     );
   }

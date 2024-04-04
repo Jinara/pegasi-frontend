@@ -50,11 +50,6 @@
         </label>
       </div>
 
-      <div *ngIf="errors">
-        <p *ngFor="let error of errors">
-          {{ error }}
-        </p>
-      </div>
 
       <div class="">
         <button type="submit" class="">Enviar</button>
@@ -74,7 +69,7 @@
       </h1>
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-2">
           <div class="text-gray-600">
             <h2 class="font-medium text-lg">Datos básicos</h2>
             <p>
@@ -93,7 +88,7 @@
               <div
                 class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
               >
-                <div class="md:col-span-5">
+                <div class="md:col-span-8">
                   <label for="full_name">Nombre (requerido):</label>
                   <input
                     type="text"
@@ -111,7 +106,7 @@
                   </span>
                 </div>
 
-                <div class="md:col-span-5">
+                <div class="md:col-span-8">
                   <label for="lastName">Apellido (requerido):</label>
                   <input
                     type="text"
@@ -129,7 +124,7 @@
                   </span>
                 </div>
 
-                <div class="md:col-span-5">
+                <div class="md:col-span-8">
                   <label for="age">Edad (requerido):</label>
                   <input
                     type="number"
@@ -147,7 +142,7 @@
                   </span>
                 </div>
 
-                <div class="md:col-span-5">
+                <div class="md:col-span-8">
                   <fieldset class="relative z-0 w-full p-px mb-5">
                     <label for="sex">Sexo (requerido):</label>
                     <div class="block pt-3 pb-2 space-x-4">
@@ -236,6 +231,12 @@
                   >
                     Por favor ingresa tu apellido
                   </span>
+                </div>
+
+                <div *ngIf="errors">
+                  <p *ngFor="let error of errors">
+                    {{ error }}
+                  </p>
                 </div>
 
                 <div class="md:col-span-5 text-right">
