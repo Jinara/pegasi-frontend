@@ -1,6 +1,12 @@
-<div *ngIf="users" class="">
-  <div *ngFor="let user of users">
-    <p>{{ user.firstName }}</p>
+@if(users){
+<div *ngFor="let user of users">
+  <div class="min-h-screen p-2 bg-gray-100 flex justify-center">
+    <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+      <h1 class="font-semibold text-2xl text-gray-600 mb-6">Usuarios:</h1>
+      <p>{{ user.firstName }}</p>
+    </div>
   </div>
 </div>
-<p>No hay usuarios en la BD</p>
+} @else{
+<h1 class="text-2xl">No hay usuarios en la BD</h1>
+}
