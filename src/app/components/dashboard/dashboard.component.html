@@ -1,7 +1,9 @@
 <div class="min-h-screen p-2 bg-gray-100 flex justify-center">
   <div class="bg-white w-full rounded shadow-lg p-4 px-4 md:p-8 mb-6">
     <div class="lg:flex items-center justify-center w-full">
-      <div aria-label="card 1" class="focus:outline-none lg:w-4/12 lg:mr-7 lg:mb-0 mb-7 bg-gray-200 p-6 shadow rounded">
+      @if(user){
+
+      <div aria-label="card 1" class="focus:outline-none lg:w-4/12 lg:mr-7 lg:mb-0 mb-7 bg-gray-100 p-6 shadow rounded">
           <div class="flex items-center border-b border-gray-200 pb-6">
               <img src="https://cdn.tuk.dev/assets/components/misc/doge-coin.png" alt="coin avatar" class="w-12 h-12 rounded-full" />
               <div class="flex items-start justify-between w-full">
@@ -25,5 +27,9 @@
                 </p>
           </div>
       </div>
+      }
+      @else{
+        <h1>El usuario con id {{userId}} no existe</h1>
+      }
   </div>
 </div>

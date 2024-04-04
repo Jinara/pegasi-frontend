@@ -47,8 +47,8 @@ export class DashboardComponent {
     return false
   }
 
+  //TODO: Parse date to show a humanized date
   get birthdate() {
-    console.log(this.user?.birthdate)
-    return 'mañana'
+    return this.user?.birthdate
   }
 }
