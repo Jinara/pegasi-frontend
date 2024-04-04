@@ -1,35 +1,53 @@
-<div class="">
+<!-- <div class="">
   <div class="">
-    <h2>Formulario de inscripción</h2>
+    <h2 class="text-3xl font-bold underlin">Formulario de inscripción</h2>
 
     <form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
-      <div class="form-group row">
-        <label class="control-label">Nombre: (requerido)</label>
+      <div class="">
+        <label class="">Nombre: (requerido)</label>
         <div class="">
-          <input class="form-control" type="text" formControlName="firstName" />
+          <input class="" type="text" formControlName="firstName" />
         </div>
         <span class="" *ngIf="firstName?.invalid && formDir.submitted">
           Por favor ingresa tu nombre
         </span>
       </div>
-      <div class="form-group row">
-        <label class="control-label">Apellido: (requerido)</label>
-        <div class="col-md-4">
-          <input class="form-control" type="text" formControlName="lastName" />
+      <div class="">
+        <label class="">Apellido: (requerido)</label>
+        <div class="">
+          <input class="" type="text" formControlName="lastName" />
         </div>
         <span class="" *ngIf="lastName?.invalid && formDir.submitted">
           Por favor ingresa tu apellido
         </span>
       </div>
 
-      <div class="form-group row">
-        <label class="control-label">Edad: (requerido)</label>
+      <div class="">
+        <label class="">Edad: (requerido)</label>
         <div class="">
-          <input class="form-control" type="number" formControlName="age" />
+          <input class="" type="number" formControlName="age" />
         </div>
         <span class="" *ngIf="age?.invalid && formDir.submitted">
           Por favor ingresa tu edad
         </span>
+      </div>
+
+      <div>
+        <label class="inline-flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            formControlName="age"
+            value=""
+            class="sr-only peer"
+          />
+          <div
+            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+          ></div>
+          <span
+            class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Estas embarazada / lactando</span
+          >
+        </label>
       </div>
 
       <div *ngIf="errors">
@@ -38,11 +56,210 @@
         </p>
       </div>
 
-      <div class="form-group">
+      <div class="">
         <button type="submit" class="">Enviar</button>
       </div>
     </form>
 
     <button class="" (click)="goToList()">Ir a la lista de usuarios</button>
+  </div>
+</div> -->
+
+<!-- component -->
+<div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <h1 class="font-semibold text-2xl text-gray-600 mb-6">
+        Formulario de registro
+      </h1>
+
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <h2 class="font-medium text-lg">Datos básicos</h2>
+            <p>
+              Por favor ingresa la información completa y veridica, todos los
+              campos son requeridos
+            </p>
+          </div>
+
+          <form
+            [formGroup]="form"
+            (ngSubmit)="save()"
+            #formDir="ngForm"
+            novalidate
+          >
+            <div class="lg:col-span-2">
+              <div
+                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
+              >
+                <div class="md:col-span-5">
+                  <label for="full_name">Nombre (requerido):</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                    formControlName="firstName"
+                  />
+                  <span
+                    class="text-sm text-red-600"
+                    *ngIf="firstName?.invalid && formDir.submitted"
+                  >
+                    Por favor ingresa tu nombre
+                  </span>
+                </div>
+
+                <div class="md:col-span-5">
+                  <label for="lastName">Apellido (requerido):</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                    formControlName="lastName"
+                  />
+                  <span
+                    class="text-sm text-red-600"
+                    *ngIf="lastName?.invalid && formDir.submitted"
+                  >
+                    Por favor ingresa tu apellido
+                  </span>
+                </div>
+
+                <div class="md:col-span-5">
+                  <label for="age">Edad (requerido):</label>
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                    formControlName="age"
+                  />
+                  <span
+                    class="text-sm text-red-600"
+                    *ngIf="age?.invalid && formDir.submitted"
+                  >
+                    Por favor ingresa tu edad
+                  </span>
+                </div>
+
+                <div class="md:col-span-5">
+                  <fieldset class="relative z-0 w-full p-px mb-5">
+                    <label for="sex">Sexo (requerido):</label>
+                    <div class="block pt-3 pb-2 space-x-4">
+                      <label>
+                        <input
+                          type="radio"
+                          name="sex"
+                          value="female"
+                          formControlName="sex"
+                          class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+                        />
+                        Femenino
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="sex"
+                          value="male"
+                          formControlName="sex"
+                          class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+                        />
+                        Masculino
+                      </label>
+                    </div>
+                    <span
+                      class="text-sm text-red-600"
+                      *ngIf="sex?.invalid && formDir.submitted"
+                    >
+                      Por favor selecciona una opción
+                    </span>
+                  </fieldset>
+                </div>
+
+                @if(sex && sex.value === 'female'){
+                <div class="md:col-span-5">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <label for="pregnancy"
+                      >¿Estás embarazada o lactando?:</label
+                    >
+                    <input
+                      type="checkbox"
+                      formControlName="pregnancy"
+                      value=""
+                      class="sr-only peer"
+                    />
+                    <div
+                      class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                    ></div>
+                  </label>
+                </div>
+                }
+
+                <div class="md:col-span-5">
+                  <label for="date">Fecha de nacimiento</label>
+                  <input
+                    type="text"
+                    name="date"
+                    placeholder=" "
+                    formControlName="birthdate"
+                    onclick="this.setAttribute('type', 'date');"
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                  />
+                  <span
+                    class="text-sm text-red-600"
+                    *ngIf="birthdate?.invalid && formDir.submitted"
+                  >
+                    Por favor selecciona tu fecha de naciemiento
+                  </span>
+                </div>
+
+                <div class="md:col-span-5">
+                  <label for="phoneNumber"
+                    >Número de telefono (requerido):</label
+                  >
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                    formControlName="phoneNumber"
+                  />
+                  <span
+                    class="text-sm text-red-600"
+                    *ngIf="phoneNumber?.invalid && formDir.submitted"
+                  >
+                    Por favor ingresa tu apellido
+                  </span>
+                </div>
+
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <button
+                      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      type="submit"
+                    >
+                      Registrarme
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      (click)="goToList()"
+    >
+      Ir a la lista de usuarios
+    </button>
   </div>
 </div>

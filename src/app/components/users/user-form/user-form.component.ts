@@ -27,14 +27,10 @@ export class UserFormComponent {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       age: ['', [Validators.required]],
-      sex: ['', []],
-      pregnancy: ['', []],
-      birthdate: ['', []],
-      phoneNumber: ['', []],
-      // sex: ['', [Validators.required]],
-      // pregnancy: ['', [Validators.required]],
-      // birthdate: ['', [Validators.required]],
-      // phoneNumber: ['', [Validators.required]],
+      sex: ['', [Validators.required]],
+      pregnancy: ['', [Validators.required]],
+      birthdate: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
     });
   }
 
@@ -42,6 +38,7 @@ export class UserFormComponent {
 
   save() {
     if (!this.form.valid) {
+      console.log(this.form)
       return;
     }
 
