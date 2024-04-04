@@ -66,8 +66,8 @@ export class UserFormComponent {
     );
   }
 
-  cancel() {
-    this.router.navigate(['/']);
+  goToList() {
+    this.router.navigate(['/admin']);
   }
 
   get firstName() {

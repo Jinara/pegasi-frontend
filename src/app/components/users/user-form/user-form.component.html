@@ -1,46 +1,48 @@
-<div class="row mt-3 pb-2">
-  <div class="col-md-12 mt-3 pb-2">
+<div class="">
+  <div class="">
     <h2>Formulario de inscripción</h2>
 
     <form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
       <div class="form-group row">
-        <label class="control-label col-md-12">Nombre: (requerido)</label>
-        <div class="col-md-4">
-          <input class="form-control" type="text" formControlName="firstName">
+        <label class="control-label">Nombre: (requerido)</label>
+        <div class="">
+          <input class="form-control" type="text" formControlName="firstName" />
         </div>
-        <span class="text-danger ml-3" *ngIf="firstName?.invalid && formDir.submitted">
+        <span class="" *ngIf="firstName?.invalid && formDir.submitted">
           Por favor ingresa tu nombre
         </span>
       </div>
       <div class="form-group row">
-        <label class=" control-label col-md-12">Apellido: (requerido)</label>
+        <label class="control-label">Apellido: (requerido)</label>
         <div class="col-md-4">
-          <input class="form-control" type="text" formControlName="lastName">
+          <input class="form-control" type="text" formControlName="lastName" />
         </div>
-        <span class="text-danger ml-3" *ngIf="lastName?.invalid && formDir.submitted">
+        <span class="" *ngIf="lastName?.invalid && formDir.submitted">
           Por favor ingresa tu apellido
         </span>
       </div>
 
       <div class="form-group row">
-        <label class=" control-label col-md-12">Edad: (requerido)</label>
-        <div class="col-md-4">
-          <input class="form-control" type="number" formControlName="age">
+        <label class="control-label">Edad: (requerido)</label>
+        <div class="">
+          <input class="form-control" type="number" formControlName="age" />
         </div>
-        <span class="text-danger ml-3" *ngIf="age?.invalid && formDir.submitted">
+        <span class="" *ngIf="age?.invalid && formDir.submitted">
           Por favor ingresa tu edad
         </span>
       </div>
 
       <div *ngIf="errors">
         <p *ngFor="let error of errors">
-          {{error}}
+          {{ error }}
         </p>
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-success">Enviar</button>
+        <button type="submit" class="">Enviar</button>
       </div>
     </form>
+
+    <button class="" (click)="goToList()">Ir a la lista de usuarios</button>
   </div>
 </div>
