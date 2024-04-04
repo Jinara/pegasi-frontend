@@ -1,0 +1,46 @@
+<div class="row mt-3 pb-2">
+  <div class="col-md-12 mt-3 pb-2">
+    <h2>Formulario de inscripción</h2>
+
+    <form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+      <div class="form-group row">
+        <label class="control-label col-md-12">Nombre: (requerido)</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="firstName">
+        </div>
+        <span class="text-danger ml-3" *ngIf="firstName?.invalid && formDir.submitted">
+          Por favor ingresa tu nombre
+        </span>
+      </div>
+      <div class="form-group row">
+        <label class=" control-label col-md-12">Apellido: (requerido)</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="lastName">
+        </div>
+        <span class="text-danger ml-3" *ngIf="lastName?.invalid && formDir.submitted">
+          Por favor ingresa tu apellido
+        </span>
+      </div>
+
+      <div class="form-group row">
+        <label class=" control-label col-md-12">Edad: (requerido)</label>
+        <div class="col-md-4">
+          <input class="form-control" type="number" formControlName="age">
+        </div>
+        <span class="text-danger ml-3" *ngIf="age?.invalid && formDir.submitted">
+          Por favor ingresa tu edad
+        </span>
+      </div>
+
+      <div *ngIf="errors">
+        <p *ngFor="let error of errors">
+          {{error}}
+        </p>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>

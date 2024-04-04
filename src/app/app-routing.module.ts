@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
+import { UserFormComponent } from './components/users/user-form/user-form.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: UsersComponent
+  },
+  {
+    path: '',
+    component: UserFormComponent
   }
 ];
 
