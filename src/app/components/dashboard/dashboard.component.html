@@ -1,5 +1,29 @@
 <div class="min-h-screen p-2 bg-gray-100 flex justify-center">
   <div class="bg-white w-full rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-    <h1 class="font-semibold text-2xl text-gray-600 mb-6">Bienvenido!</h1>
+    <div class="lg:flex items-center justify-center w-full">
+      <div aria-label="card 1" class="focus:outline-none lg:w-4/12 lg:mr-7 lg:mb-0 mb-7 bg-gray-200 p-6 shadow rounded">
+          <div class="flex items-center border-b border-gray-200 pb-6">
+              <img src="https://cdn.tuk.dev/assets/components/misc/doge-coin.png" alt="coin avatar" class="w-12 h-12 rounded-full" />
+              <div class="flex items-start justify-between w-full">
+                  <div class="pl-3 w-full">
+                      <p tabindex="0" class="focus:outline-none text-xl font-medium leading-5 text-black">Hola {{user?.firstName}} {{user?.lastName}}</p>
+                      <p tabindex="0" class="focus:outline-none text-sm leading-normal pt-2 text-black">{{sex}}, {{user?.age}} años</p>
+                  </div>
+              </div>
+          </div>
+          <div class="px-2">
+              @if(pregnancy) {
+                <p class="focus:outline-none text-sm leading-5 py-2 text-gray-600  ">
+                  Estás embarazada o lactando.
+                </p>
+              }
+                <p class="focus:outline-none text-sm leading-5 py-1 text-gray-600  ">
+                  Naciste el: {{birthdate}}
+                </p>
+                <p class="focus:outline-none text-sm leading-5 py-1 text-gray-600 ">
+                  Tu telefono registrado es: {{user?.phoneNumber}}
+                </p>
+          </div>
+      </div>
   </div>
 </div>
