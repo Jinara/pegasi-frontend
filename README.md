@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Usage:
+Go to root to get registration form 
+```bash
+  localhost:4200/
+```
+
+Go to /admin to get simple user list
+```bash
+  localhost:4200/admin
+```
+
+Go to /dashboard + id to get user info
+```bash
+  localhost:4200/dashboard?id=1234
+```
